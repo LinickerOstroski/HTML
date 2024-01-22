@@ -1,0 +1,49 @@
+<table id="tabela">
+    <caption>Produtos</caption>
+    <thead><!--Cabeça Aqui as colunas da tabela-->
+        <tr>
+            <th>Produto</th><!--Table Head-->
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody><!--Corpo da tabela, DADOS-->
+        <tr><!--Elemento ou linha da tabela-->
+            <td>iPad</td><!--Table data-->
+            <td>3289,00</td>
+            <td>5</td>
+            <td>16445,00</td>
+        </tr>
+        <tr><!--Elemento ou nova linha da tabela-->
+            <td>Samsung S9</td>
+            <td>2649,00</td>
+            <td>8</td>
+            <td>21192,00</td>
+        </tr>
+    </tbody>
+    <tfoot><!--Rodapé da tabela, Table foot-->
+        <tr>
+            <td colspan="3">Total</td> <!--colspan está ocupando três colunas da tabela-->
+            <td>37637,00</td>
+        </tr>
+    </tfoot>
+</table>
+
+<style>
+    #tabela{
+        border-collapse: collapse;
+    }
+
+    th, td{
+        padding: 4px;
+    }
+
+    thead tr{
+        border-bottom: solid 3px rgb(98, 119, 197);
+    }
+
+    tbody :hover{ 
+        background-color: #dedede;
+    }
+</style>

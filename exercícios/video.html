@@ -1,0 +1,77 @@
+<video  id="meuVideo" width="800" height="450" controls autoplay controlsList="nodownload">
+    <source src = "http://files.cod3r.com.br/curso-web/video.mp4" type="video/mp4"
+    Seu browser não suporta>
+</video>
+
+<div wm-progresso="meuVideo" class="progresso">
+    <div></div>
+</div>
+
+<div>
+    <button wm-play="meuVideo" class="botao" onclick="playVideo()">Play</button>
+    <button wm-pause="meuVideo" class="botao" onclick="pauseVideo()">Pause</button>
+</div>
+
+
+<style>
+    .botao{
+        background-color: rgb(143, 179, 130);
+        width: 80px;
+        height: 40px;
+        position: relative;
+        border-color: rgb(87, 108, 77);
+        text-align:center;
+        font-size: medium;
+        font-style: oblique;
+        margin-left: 5px;
+    }
+
+    .progresso{
+        height: 15px;
+        width: 800px;
+        border: solid 1px gray;
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .progresso > div{
+        background-color: rgb(55, 149, 72);
+        color: aliceblue;
+        height: 100%;
+        text-align: right;
+        font-size: 14px;
+    }
+</style>
+
+<script>
+
+function playVideo(){
+    const meuVideo = document.getElementById("meuVideo");
+
+    if(meuVideo.paused)
+        meuVideo.play();
+}
+    
+function pauseVideo(){
+    const meuVideo = document.getElementById("meuVideo");
+
+    if(meuVideo.play)
+        meuVideo.pause();
+}
+
+
+function configurarVideo(id){
+    const video = document.getElementById(id)
+    video.oncontextmenu = () => false
+
+    setInterval(() =>{
+        const percentual = (video.currentTime / video.duration) * 100
+        const valorDiv = document.querySelector(`[wm-progresso=${id}] > div`)
+        valorDiv.style.width = `${percentual}%`
+        valorDiv.innerHTML = `${percentual.toFixed(1)}%`
+    }, 100)
+}
+
+    configurarVideo('meuVideo')
+</script>

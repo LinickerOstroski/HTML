@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicios HTML</title>
+    <style>
+        #conteudo{
+            padding: 10px 0px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Learning HTML</h1>
+        <hr>
+    </header>
+    <nav>
+        <a href wm-nav="exercícios/teste.html">00 - Teste</a> |
+        <a href wm-nav="exercícios/texto1.html">01 - Texto 1</a> |
+        <a href wm-nav="exercícios/texto2.html">02 - Texto 2</a> |
+        <a href wm-nav="exercícios/listas.html">03 - Texto 3</a> |
+        <a href wm-nav="exercícios/listaAninhada.html">04 - Lista Aninhada</a> |
+        <a href wm-nav="exercícios/links.html">05 - Links</a> |
+        <a href wm-nav="exercícios/tabela.html">06 - Tabela</a> |
+        <a href wm-nav="exercícios/form/form.html">07 - Formulário</a> |
+        <a href wm-nav="exercícios/images.html">08 - Imagens</a> |
+        <a href wm-nav="exercícios/video.html">09 - Vídeos</a> |
+    </nav>
+    <section id="conteudo"></section>
+    <footer>
+        Curso de WEB Moderno
+    </footer>
+    <script>
+        document.querySelectorAll('[wm-nav]').forEach(link => {
+            const conteudo = document.getElementById('conteudo'); //Como estamos passando pelo id, não precisa do #
+            
+            link.onclick = function(e){
+                e.preventDefault();              
+                fetch(link.getAttribute('wm-nav')) //Chamada Ajax
+                    .then(resp => resp.text())//Função que pega conteudo do HTML que fez requisição
+                    .then(html => conteudo.innerHTML = html)
+            }   
+        })
+    </script>
+</body>
+</html>
